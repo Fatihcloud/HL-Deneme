@@ -1,32 +1,18 @@
 backend:
   name: github
-  branch: main
   repo: Fatihcloud/HL-Deneme
+  branch: main
 
-media_folder: "static/img" # Resimlerin saklanacağı klasör
-public_folder: "/img" # Resimlerin URL'de görüneceği yol
+media_folder: "static/img" # Medya dosyaları için saklama klasörü
+public_folder: "/img" # Medya dosyalarının URL erişim yolu
 
 collections:
   - name: blog
     label: "Blog"
     folder: blog
-    identifier_field: title
-    extension: md
-    widget: "list"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Örneğin: 2021-11-15-title.md
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Dosya adı formatı
     fields:
-      - { name: title, label: Title, widget: string }
-      - { name: slug, label: Slug, widget: string }
-      - { name: body, label: Body, widget: markdown }
-      - label: Tags
-        name: tags
-        widget: list
-      - label: Authors
-        name: authors
-        widget: list
-        fields:
-          - { name: name, label: Name, widget: string }
-          - { name: title, label: Title, widget: string }
-          - { name: url, label: URL, widget: string }
-          - { name: image_url, label: Image URL, widget: string }
+      - { name: title, label: "Title", widget: "string" }
+      - { name: slug, label: "Slug", widget: "string" }
+      - { name: body, label: "Body", widget: "markdown" }
