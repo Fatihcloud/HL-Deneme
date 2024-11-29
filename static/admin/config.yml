@@ -1,9 +1,10 @@
 backend:
   name: git-gateway
-  branch: main # Belirli bir Git dalını kullanın
+  repo: Fatihcloud/HL-Deneme # GitHub depo adı
+  branch: main # Git üzerinde kullanılacak dal (örneğin: main)
 
-media_folder: static/img # Yüklenen dosyalar bu klasöre gider
-public_folder: /img # Bu URL ile erişilir
+media_folder: static/img # Yüklenen dosyaların kaydedileceği yer
+public_folder: /img # Yüklenen dosyaların URL üzerinden erişimi
 
 collections:
   - name: "docs"
