@@ -1,18 +1,46 @@
 backend:
   name: github
-  repo: Fatihcloud/HL-Deneme
+  repo: Fatihcloud/HL-Deneme # GitHub repo adı
   branch: main
 
-media_folder: "static/img" # Medya dosyaları için saklama klasörü
+media_folder: "static/img" # Medya dosyalarının saklanacağı klasör
 public_folder: "/img" # Medya dosyalarının URL erişim yolu
 
 collections:
+  # Blog gönderileri
   - name: blog
     label: "Blog"
     folder: blog
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Dosya adı formatı
     fields:
-      - { name: title, label: "Title", widget: "string" }
-      - { name: slug, label: "Slug", widget: "string" }
-      - { name: body, label: "Body", widget: "markdown" }
+      - { name: title, label: "Title", widget: "string" } # Blog başlığı
+      - { name: slug, label: "Slug", widget: "string" } # URL için slug
+      - { name: body, label: "Body", widget: "markdown" } # Blog içeriği
+
+  # Docusaurus Docs içeriği
+  - name: docs
+    label: "Documentation"
+    folder: docs # Docusaurus'un dokümanlarının saklandığı klasör
+    create: true
+    nested:
+      depth: 2 # Alt klasör derinliğini belirtir
+    slug: "{{folder}}/{{slug}}" # Alt klasörlerle birlikte dosya adı formatı
+    fields:
+      - { name: id, label: "ID", widget: "string", required: true } # Docusaurus doküman ID'si
+      - { name: title, label: "Title", widget: "string" } # Doküman başlığı
+      - { name: body, label: "Body", widget: "markdown" } # Markdown içeriği
+      - {
+          name: folder,
+          label: "Folder",
+          widget: "select",
+          options: ["tutorial-basics", "tutorial-extras"],
+          required: true,
+        } # Alt klasör seçimi
+      - {
+          name: sidebar_position,
+          label: "Sidebar Position",
+          widget: "number",
+          required: false,
+        } # Opsiyonel olarak yan menü sırası
+      - { name: tags, label: "Tags", widget: "list", required: false } # Opsiyonel olarak etiketler
