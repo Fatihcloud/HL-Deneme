@@ -1,0 +1,16 @@
+backend:
+  name: git-gateway
+  branch: main # Belirli bir Git dalını kullanın
+
+media_folder: static/img # Yüklenen dosyalar bu klasöre gider
+public_folder: /img # Bu URL ile erişilir
+
+collections:
+  - name: "docs"
+    label: "Documentation"
+    folder: "docs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Content", name: "body", widget: "markdown" }
