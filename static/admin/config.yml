@@ -3,7 +3,7 @@ backend:
   repo: Fatihcloud/HL-Deneme # GitHub repo adı
   branch: main
 
-media_folder: "static/img" # Medya dosyalarının saklanacağı klasör
+media_folder: "static/img" # Medya dosyalarının kaydedileceği klasör
 public_folder: "/img" # Medya dosyalarının URL erişim yolu
 
 collections:
@@ -14,33 +14,38 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Dosya adı formatı
     fields:
-      - { name: title, label: "Title", widget: "string" } # Blog başlığı
-      - { name: slug, label: "Slug", widget: "string" } # URL için slug
-      - { name: body, label: "Body", widget: "markdown" } # Blog içeriği
+      - { name: title, label: "Title", widget: "string" }
+      - { name: slug, label: "Slug", widget: "string" }
+      - { name: body, label: "Body", widget: "markdown" }
 
-  # Docusaurus Docs içeriği
+  # Ana Documentation Koleksiyonu
   - name: docs
     label: "Documentation"
-    folder: docs # Docusaurus'un dokümanlarının saklandığı klasör
+    folder: docs # Ana doküman klasörü
     create: true
-    nested:
-      depth: 2 # Alt klasör derinliğini belirtir
-    slug: "{{folder}}/{{slug}}" # Alt klasörlerle birlikte dosya adı formatı
+    slug: "{{slug}}" # Basit dosya adı formatı
     fields:
-      - { name: id, label: "ID", widget: "string", required: true } # Docusaurus doküman ID'si
-      - { name: title, label: "Title", widget: "string" } # Doküman başlığı
-      - { name: body, label: "Body", widget: "markdown" } # Markdown içeriği
-      - {
-          name: folder,
-          label: "Folder",
-          widget: "select",
-          options: ["tutorial-basics", "tutorial-extras"],
-          required: true,
-        } # Alt klasör seçimi
-      - {
-          name: sidebar_position,
-          label: "Sidebar Position",
-          widget: "number",
-          required: false,
-        } # Opsiyonel olarak yan menü sırası
-      - { name: tags, label: "Tags", widget: "list", required: false } # Opsiyonel olarak etiketler
+      - { name: id, label: "ID", widget: "string", required: true }
+      - { name: title, label: "Title", widget: "string" }
+      - { name: body, label: "Body", widget: "markdown" }
+
+  # Alt klasörler için ayrı koleksiyonlar
+  - name: tutorial_basics
+    label: "Tutorial Basics"
+    folder: docs/tutorial-basics
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: id, label: "ID", widget: "string", required: true }
+      - { name: title, label: "Title", widget: "string" }
+      - { name: body, label: "Body", widget: "markdown" }
+
+  # - name: tutorial_extras
+  #   label: "Tutorial Extras"
+  #   folder: docs/tutorial-extras
+  #   create: true
+  #   slug: "{{slug}}"
+  #   fields:
+  #     - { name: id, label: "ID", widget: "string", required: true }
+  #     - { name: title, label: "Title", widget: "string" }
+  #     - { name: body, label: "Body", widget: "markdown" }

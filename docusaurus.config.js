@@ -70,6 +70,8 @@ const config = {
     ],
   ],
 
+  trailingSlash: false, // URL'lerin sonunda '/' olmayacak
+
   plugins: [
     [
       require.resolve("docusaurus-lunr-search"),
