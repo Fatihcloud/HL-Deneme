@@ -1,16 +1,32 @@
 backend:
-  name: git-gateway
+  name: github
   branch: main
+  repo: Fatihcloud/HL-Deneme
 
-media_folder: static/img # Medya dosyalarının saklanacağı klasör
-public_folder: /img # Medya dosyalarının URL erişimi
+media_folder: "static/img" # Resimlerin saklanacağı klasör
+public_folder: "/img" # Resimlerin URL'de görüneceği yol
 
 collections:
-  - name: "docs"
-    label: "Documentation"
-    folder: "docs"
+  - name: blog
+    label: "Blog"
+    folder: blog
+    identifier_field: title
+    extension: md
+    widget: "list"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Örneğin: 2021-11-15-title.md
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Content", name: "body", widget: "markdown" }
+      - { name: title, label: Title, widget: string }
+      - { name: slug, label: Slug, widget: string }
+      - { name: body, label: Body, widget: markdown }
+      - label: Tags
+        name: tags
+        widget: list
+      - label: Authors
+        name: authors
+        widget: list
+        fields:
+          - { name: name, label: Name, widget: string }
+          - { name: title, label: Title, widget: string }
+          - { name: url, label: URL, widget: string }
+          - { name: image_url, label: Image URL, widget: string }
