@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Fatihcloud.github.io/HL-Deneme/blog</id>
+    <title>My Site Blog</title>
+    <updated>2021-11-15T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Fatihcloud.github.io/HL-Deneme/blog"/>
+    <subtitle>My Site Blog</subtitle>
+    <icon>https://Fatihcloud.github.io/HL-Deneme/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[First Blog Post]]></title>
+        <id>https://Fatihcloud.github.io/HL-Deneme/blog/first-blog-post</id>
+        <link href="https://Fatihcloud.github.io/HL-Deneme/blog/first-blog-post"/>
+        <updated>2021-11-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat.]]></summary>
+        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat.</p>
+<p>Fusce rhoncus ipsum tempor eros aliquam consequat. Praesent vel ipsum mollis orci venenatis luctus.</p>]]></content>
+        <author>
+            <name>Garrison McMullen</name>
+            <uri>https://github.com/garrison0</uri>
+        </author>
+    </entry>
+</feed>
